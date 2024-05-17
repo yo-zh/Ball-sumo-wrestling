@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class PowerupPickUp : MonoBehaviour
@@ -6,7 +7,7 @@ public class PowerupPickUp : MonoBehaviour
     private PlayerController playerController;
     private GameObject powerupIndicator;
 
-
+    [SerializeField] TextMeshProUGUI cannonText;
     private void Start()
     {
         playerController = GetComponent<PlayerController>();
@@ -30,6 +31,7 @@ public class PowerupPickUp : MonoBehaviour
         yield return new WaitForSecondsRealtime(10);
         playerController.SetCurrentPowerup(PowerupType.None);
         AdjustPowerupIndicator(PowerupType.None);
+        cannonText.gameObject.SetActive(false);
     }
 
     public void AdjustPowerupIndicator(PowerupType powerupType)
@@ -59,6 +61,7 @@ public class PowerupPickUp : MonoBehaviour
                     if (currentChild.name == "Cannon")
                     {
                         currentChild.gameObject.SetActive(true);
+                        cannonText.gameObject.SetActive(true);
                     }
                 }
                 break;

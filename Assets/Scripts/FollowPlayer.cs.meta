@@ -3,7 +3,9 @@ guid: 574d5af89039e064fa67ab49846fa12a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {instanceID: 0}
+  - smallBoing: {fileID: 8300000, guid: d31b36d2901445d45903c61325fa6a8d, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

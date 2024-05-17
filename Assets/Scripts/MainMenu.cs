@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject gameOverMenu;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI waveText;
     private bool gameStarted = false;
     private bool paused = false;
 
@@ -31,6 +32,7 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
+        PrintWave(0);
         Time.timeScale = 0.0f;
         mainMenu.SetActive(true);
         startButton.onClick.AddListener(StartTheGame);
@@ -64,6 +66,7 @@ public class MainMenu : MonoBehaviour
 
     private void StartTheGame()
     {
+        waveText.gameObject.SetActive(true);
         gameStarted = true;
         Time.timeScale = 1.0f;
         mainMenu.SetActive(false);
@@ -84,10 +87,17 @@ public class MainMenu : MonoBehaviour
     private void ShowGameOverScreen()
     {
         gameStarted = false;
+        waveText.gameObject.SetActive(false);
         Time.timeScale = 0.0f;
         gameOverMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
     }
+
+    public void PrintWave(int wave)
+    {
+        waveText.text = "Wave: " + wave.ToString();
+    }
+
     private void PrintScore(int score)
     {
         if (score > 1 || score == 0)

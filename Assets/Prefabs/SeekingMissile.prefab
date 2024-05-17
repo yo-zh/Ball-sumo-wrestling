@@ -258,7 +258,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7908440072372197368}
-  - component: {fileID: 4297358130573600026}
   - component: {fileID: 6173609690120117484}
   - component: {fileID: 7769378620094763781}
   - component: {fileID: 9160337404397033031}
@@ -287,20 +286,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4297358130573600026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8732684868509376707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0df4b0028c80b9b489d2eecf19a025cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  launchSpeed: 25
-  speed: 50
 --- !u!54 &6173609690120117484
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -342,6 +327,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   launchSpeed: 10
   speed: 25
+  missileLaunch: {fileID: 8300000, guid: 94f6084960f41e24884a942651edd89c, type: 3}
+  missileExplosion: {fileID: 8300000, guid: c45584ee16f86c34f914b7aee9a15f76, type: 3}
 --- !u!65 &9160337404397033031
 BoxCollider:
   m_ObjectHideFlags: 0

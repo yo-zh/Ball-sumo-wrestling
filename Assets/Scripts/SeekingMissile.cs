@@ -4,6 +4,8 @@ public class SeekingMissile : MonoBehaviour
 {
     [SerializeField] float launchSpeed;
     [SerializeField] float speed;
+    [SerializeField] AudioClip missileLaunch;
+    [SerializeField] AudioClip missileExplosion;
     private GameObject target;
     private Rigidbody rocketRigidbody;
     private float selfDestructionTimer = 3f;
@@ -16,6 +18,7 @@ public class SeekingMissile : MonoBehaviour
     {
         if (target != null)
         {
+            AudioSource.PlayClipAtPoint(missileLaunch, transform.position);
             rocketRigidbody = GetComponent<Rigidbody>();
         }
     }
@@ -43,6 +46,7 @@ public class SeekingMissile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            AudioSource.PlayClipAtPoint(missileExplosion, transform.position);
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }

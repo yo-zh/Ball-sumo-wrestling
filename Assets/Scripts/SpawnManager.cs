@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -14,6 +15,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] int enemiesToSpawn;
     [SerializeField] float moreTimeBetweenWaves;
     [SerializeField] int aliveEnemies = 0;
+    [SerializeField] TextMeshProUGUI waveText;
     private int waveCount = 0;
     private bool waveCalled = false;
     public int GetAliveEnemies() { return aliveEnemies; }
@@ -25,6 +27,12 @@ public class SpawnManager : MonoBehaviour
     private void OnDisable()
     {
         PlayerController.GameOver -= SendScore;
+    }
+
+    private void Start()
+    {
+        waveCount = 0;
+        waveText.text = "Get ready";
     }
 
     private void Update()
@@ -41,6 +49,7 @@ public class SpawnManager : MonoBehaviour
             }
             waveCalled = true;
             waveCount++;
+            waveText.text = "Wave: " + waveCount.ToString();
         }
     }
 

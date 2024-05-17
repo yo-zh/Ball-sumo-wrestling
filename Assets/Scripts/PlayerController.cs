@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject cameraFocus;
     [SerializeField] float powerupStrength = 1.0f;
     [SerializeField] GameObject rocketPrefab;
+    [SerializeField] AudioClip barrierBounce;
+    [SerializeField] AudioClip groundPoundSound;
 
     private float forwardInput;
     private Rigidbody playerRigidBody;
@@ -64,6 +67,7 @@ public class PlayerController : MonoBehaviour
         playerRigidBody.isKinematic = false;
         playerRigidBody.AddForce(speed * Vector3.down * 5, ForceMode.Impulse);
         PushEnemiesAway();
+        AudioSource.PlayClipAtPoint(groundPoundSound, transform.position);
         yield return new WaitForSecondsRealtime(0.25f);
         GetComponent<PowerupPickUp>().AdjustPowerupIndicator(PowerupType.None);
 
@@ -74,6 +78,11 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") && currentPowerUp == PowerupType.Bouncy) // TODO переделать под новый список усилений
         {
             PushAway(collision.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Barrier"))
+        {
+            AudioSource.PlayClipAtPoint(barrierBounce, transform.position);
         }
     }
 

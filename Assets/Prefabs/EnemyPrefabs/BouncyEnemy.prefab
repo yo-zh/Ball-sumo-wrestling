@@ -149,6 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   speed: 50
+  smallBoing: {fileID: 8300000, guid: d31b36d2901445d45903c61325fa6a8d, type: 3}
+  barrierBounce: {fileID: 8300000, guid: 18274eb0945e8a54d82cda9b84b309a4, type: 3}
 --- !u!114 &4853058165151716108
 MonoBehaviour:
   m_ObjectHideFlags: 0

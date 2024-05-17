@@ -3,7 +3,8 @@ guid: 33a51878d0fc54e4f8fc94834d9740e4
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bigBoing: {fileID: 8300000, guid: efa85eda397664a4c8201dcbb29c07b8, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
